@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Function Expressions & Declarations</title>
+</head>
+<body>
+<script>
+    // Function Declaration
+    function sayHi(name) {
+        alert(`Hello, ${name}!`);
+    }
+
+    sayHi("Alice"); 
+
+    let greet = function(name) {
+        alert(`Hi there, ${name}!`);
+    };
+
+    greet("Bob"); 
+
+
+    let copyFunc = greet;
+    copyFunc("Charlie"); 
+
+
+    function ask(question, yes, no) {
+        if (confirm(question)) yes();
+        else no();
+    }
+
+    function showOk() {
+        alert("You agreed.");
+    }
+
+    function showCancel() {
+        alert("You canceled.");
+    }
+
+
+    ask("Do you agree?", showOk, showCancel);
+
+
+    ask(
+        "Do you want to continue?",
+        function() { alert("Continuing..."); },
+        function() { alert("Stopped."); }
+    );
+
+   
+    let age = prompt("Your age?", 18);
+
+    let welcome = (age < 18) ?
+        function() { alert("Hello!"); } :
+        function() { alert("Greetings!"); };
+
+    welcome(); 
+
+</script>
+</body>
+</html>

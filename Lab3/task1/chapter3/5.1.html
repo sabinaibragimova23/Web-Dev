@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>symbol type</title>
+</head>
+<body>
+  <h1>symbol examples</h1>
+
+  <!-- unique symbols -->
+  <h2>1. unique</h2>
+  <button id="uniqueBtn">compare symbols</button>
+
+  <!-- hidden property -->
+  <h2>2. hidden property</h2>
+  <button id="hiddenBtn">access symbol</button>
+
+  <!-- global symbols -->
+  <h2>3. global</h2>
+  <button id="globalBtn">compare global</button>
+
+  <!-- symbol keys -->
+  <h2>4. list symbol keys</h2>
+  <button id="keysBtn">show symbols</button>
+
+  <script>
+    // unique
+    document.getElementById("uniqueBtn").onclick = () => {
+      let id1 = Symbol("id");
+      let id2 = Symbol("id");
+      alert(id1 === id2); // false
+    };
+
+    // hidden property
+    let user = { name: "John" };
+    let hiddenId = Symbol("id");
+    user[hiddenId] = 123;
+
+    document.getElementById("hiddenBtn").onclick = () => {
+      alert(user[hiddenId]); // 123
+    };
+
+    // global symbols
+    let global1 = Symbol.for("id");
+    let global2 = Symbol.for("id");
+
+    document.getElementById("globalBtn").onclick = () => {
+      alert(global1 === global2); // true
+    };
+
+    // symbol keys
+    let sym1 = Symbol("a");
+    let sym2 = Symbol("b");
+    let obj = { [sym1]: 1, [sym2]: 2, name: "John" };
+
+    document.getElementById("keysBtn").onclick = () => {
+      let symbols = Object.getOwnPropertySymbols(obj);
+      alert(symbols.length + " symbols"); // 2
+      alert(obj[symbols[0]] + " " + obj[symbols[1]]); // 1 2
+    };
+  </script>
+</body>
+</html>

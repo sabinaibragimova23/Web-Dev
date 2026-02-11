@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>object to primitive</title>
+</head>
+<body>
+  <h1>Object-to-Primitive Conversion</h1>
+
+  <!-- Symbol.toPrimitive -->
+  <h2>1. Symbol.toPrimitive</h2>
+  <button id="symbolBtn">demo Symbol.toPrimitive</button>
+
+  <!-- toString/valueOf -->
+  <h2>2. toString / valueOf</h2>
+  <button id="oldBtn">demo toString/valueOf</button>
+
+  <!-- catch-all toString -->
+  <h2>3. simple toString</h2>
+  <button id="simpleBtn">demo simple toString</button>
+
+  <script>
+    // Symbol.toPrimitive
+    let user1 = {
+      name: "John",
+      money: 1000,
+      [Symbol.toPrimitive](hint) {
+        return hint === "string" ? `{name: "${this.name}"}` : this.money;
+      }
+    };
+
+    document.getElementById("symbolBtn").onclick = () => {
+      alert(user1);      // string -> {name: "John"}
+      alert(+user1);     // number -> 1000
+      alert(user1 + 500); // default -> 1500
+    };
+
+    // old-style toString/valueOf
+    let user2 = {
+      name: "Alice",
+      money: 2000,
+      toString() { return `{name: "${this.name}"}`; },
+      valueOf() { return this.money; }
+    };
+
+    document.getElementById("oldBtn").onclick = () => {
+      alert(user2);      // {name: "Alice"}
+      alert(+user2);     // 2000
+      alert(user2 + 500); // 2500
+    };
+
+    // simple catch-all toString
+    let user3 = {
+      name: "Bob",
+      toString() { return this.name; }
+    };
+
+    document.getElementById("simpleBtn").onclick = () => {
+      alert(user3);      // Bob
+      alert(user3 + 500); // Bob500
+      alert(user3 * 2);   // NaN, string used in multiplication
+    };
+  </script>
+</body>
+</html>

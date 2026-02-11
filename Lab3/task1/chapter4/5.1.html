@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Array Methods Demo</title>
+</head>
+<body>
+  <h1>Array Methods Demo</h1>
+  <div id="output"></div>
+
+  <script>
+    // Output helper
+    const out = document.getElementById('output');
+    function log(msg) {
+      out.innerHTML += msg + '<br>';
+    }
+
+    // 1. Adding/removing items
+    let arr = [1, 2, 3];
+    arr.push(4);       // add to end
+    arr.unshift(0);    // add to start
+    arr.pop();         // remove from end
+    arr.shift();       // remove from start
+    log('Add/Remove: ' + arr);
+
+    // 2. splice - remove/insert
+    arr = [1, 2, 3, 4, 5];
+    arr.splice(1, 2, 9, 8); // remove 2 from index 1, insert 9,8
+    log('Splice: ' + arr);
+
+    // 3. slice - get subarray
+    let sub = arr.slice(1, 3); // copy index 1 to 2
+    log('Slice: ' + sub);
+
+    // 4. concat - merge arrays
+    let newArr = arr.concat([10, 11]);
+    log('Concat: ' + newArr);
+
+    // 5. forEach - iterate
+    log('forEach:');
+    arr.forEach((item, index) => log(index + ':' + item));
+
+    // 6. indexOf/includes - search
+    log('IndexOf 9: ' + arr.indexOf(9));
+    log('Includes 7? ' + arr.includes(7));
+
+    // 7. find/filter - find elements
+    let numbers = [5, 10, 15];
+    let firstBig = numbers.find(n => n > 7);
+    let allBig = numbers.filter(n => n > 7);
+    log('Find >7: ' + firstBig);
+    log('Filter >7: ' + allBig);
+
+    // 8. map - transform
+    let squares = numbers.map(n => n * n);
+    log('Map (squares): ' + squares);
+
+    // 9. sort/reverse
+    let nums = [3, 1, 4];
+    nums.sort((a,b) => a-b);
+    log('Sorted: ' + nums);
+    nums.reverse();
+    log('Reversed: ' + nums);
+
+    // 10. split/join
+    let str = 'apple,banana,cherry';
+    let fruits = str.split(',');
+    log('Split: ' + fruits);
+    log('Join: ' + fruits.join(' & '));
+
+    // 11. reduce
+    let sum = [1,2,3,4].reduce((acc, val) => acc + val, 0);
+    log('Reduce (sum): ' + sum);
+
+    // 12. Check array
+    log('Is array? ' + Array.isArray(fruits));
+  </script>
+</body>
+</html>

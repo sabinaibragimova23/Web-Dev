@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>nullish coalescing</title>
+</head>
+<body>
+<script>
+    let user;
+    alert(user ?? "Anonymous");
+
+    let name = "John";
+    alert(name ?? "Anonymous");
+
+    let firstName = null;
+    let lastName = null;
+    let nickName = "Supercoder";
+    alert(firstName ?? lastName ?? nickName ?? "Anonymous");
+
+    let height = 0;
+    alert(height || 100); 
+    alert(height ?? 100); 
+
+
+    let h = null;
+    let w = null;
+    let area = (h ?? 100) * (w ?? 50);
+    alert(area);
+
+    // with parentheses
+    let x = (1 && 2) ?? 3;
+    alert(x);
+</script>
+</body>
+</html>

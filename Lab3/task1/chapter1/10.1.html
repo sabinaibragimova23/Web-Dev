@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>if and ternary</title>
+</head>
+<body>
+<script>
+
+    let year = prompt("In which year was ECMAScript-2015 published?", "");
+
+    if (year == 2015) {
+        alert("correct");
+    } else {
+        alert("wrong");
+    }
+
+ 
+    let age = prompt("age?", 18);
+
+    if (age < 3) {
+        alert("hi baby");
+    } else if (age < 18) {
+        alert("hello");
+    } else if (age < 100) {
+        alert("greetings");
+    } else {
+        alert("unusual age");
+    }
+
+
+    let accessAllowed = age > 18 ? true : false;
+    alert(accessAllowed);
+
+    //task: rewrite if into 
+    let a = 1;
+    let b = 2;
+
+    // task: a + b < 4
+    let result = (a + b < 4) ? "Below" : "Over";
+    alert(result);
+
+    //rewrite if..else into multiple 
+    let login = prompt("login", "");
+
+    // multiple conditions with ternary
+    let message =
+        (login == "Employee") ? "Hello" :
+        (login == "Director") ? "Greetings" :
+        (login == "") ? "No login" :
+        "";
+
+    alert(message);
+</script>
+</body>
+</html>

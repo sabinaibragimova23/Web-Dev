@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Date Examples</title>
+</head>
+<body>
+<h1>Date Object Examples</h1>
+
+<script>
+
+let date1 = new Date(2012, 1, 20, 3, 12); // Feb 20, 2012, 03:12
+alert(date1);
+
+
+function getWeekDay(date) {
+  let days = ['SU','MO','TU','WE','TH','FR','SA'];
+  return days[date.getDay()];
+}
+alert(getWeekDay(new Date(2012, 0, 3))); // TU
+
+
+function getLocalDay(date) {
+  let day = date.getDay();
+  return day == 0 ? 7 : day;
+}
+alert(getLocalDay(new Date(2012, 0, 3))); // 2
+
+function getDateAgo(date, days) {
+  let copy = new Date(date);
+  copy.setDate(copy.getDate() - days);
+  return copy.getDate();
+}
+alert(getDateAgo(new Date(2015,0,2), 1)); // 1
+
+
+function getLastDayOfMonth(year, month) {
+  return new Date(year, month + 1, 0).getDate();
+}
+alert(getLastDayOfMonth(2012,1)); // 29
+
+
+function getSecondsToday() {
+  let now = new Date();
+  let today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  return Math.round((now - today)/1000);
+}
+alert(getSecondsToday());
+
+
+function getSecondsToTomorrow() {
+  let now = new Date();
+  let tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1);
+  return Math.round((tomorrow - now)/1000);
+}
+alert(getSecondsToTomorrow());
+
+
+function formatDate(date) {
+  let diff = new Date() - date;
+  if (diff < 1000) return 'right now';
+  let sec = Math.floor(diff / 1000);
+  if (sec < 60) return sec + ' sec. ago';
+  let min = Math.floor(diff / 60000);
+  if (min < 60) return min + ' min. ago';
+  
+  let d = [
+    '0' + date.getDate(),
+    '0' + (date.getMonth() + 1),
+    '' + date.getFullYear(),
+    '0' + date.getHours(),
+    '0' + date.getMinutes()
+  ].map(x => x.slice(-2));
+  
+  return d.slice(0,3).join('.') + ' ' + d.slice(3).join(':');
+}
+alert(formatDate(new Date(new Date - 86400*1000))); // yesterday
+</script>
+</body>
+</html>

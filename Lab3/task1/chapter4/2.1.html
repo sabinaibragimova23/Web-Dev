@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Numbers</title>
+</head>
+<body>
+  <h1>JavaScript Numbers Demo</h1>
+  <script>
+    // --- Large Numbers ---
+    let billion = 1e9;
+    alert("Billion: " + billion);
+
+    // --- Small Numbers ---
+    let micro = 1e-6;
+    alert("Micro: " + micro);
+
+    // --- Hex, Binary, Octal ---
+    let hex = 0xff;
+    let bin = 0b11111111;
+    let oct = 0o377;
+    alert("Hex: " + hex + ", Bin: " + bin + ", Oct: " + oct);
+
+    // --- ToString base ---
+    let num = 255;
+    alert("To Hex: " + num.toString(16));
+    alert("To Bin: " + num.toString(2));
+    alert("To Base36: " + (123456).toString(36));
+
+    // --- Rounding ---
+    alert("Floor: " + Math.floor(3.6));
+    alert("Ceil: " + Math.ceil(3.6));
+    alert("Round: " + Math.round(3.6));
+    alert("Trunc: " + Math.trunc(3.6));
+
+    // --- Round n-th ---
+    let nNum = 1.23456;
+    alert("Round 2: " + Math.round(nNum * 100)/100);
+    alert("ToFixed: " + nNum.toFixed(2));
+
+    // --- Precision ---
+    alert("0.1+0.2: " + (0.1+0.2));
+    alert("Fixed 0.1+0.2: " + (0.1+0.2).toFixed(2));
+
+    // --- Two Zeroes ---
+    alert("0 === -0: " + (0 === -0));
+
+    // --- isFinite & isNaN ---
+    alert("isNaN: " + isNaN("str"));
+    alert("isFinite: " + isFinite("15"));
+    alert("Number.isNaN: " + Number.isNaN(NaN));
+    alert("Number.isFinite: " + Number.isFinite(123));
+
+    // --- parseInt & parseFloat ---
+    alert("parseInt: " + parseInt("100px"));
+    alert("parseFloat: " + parseFloat("12.5em"));
+    alert("parseInt Base16: " + parseInt("ff", 16));
+    alert("parseInt Base36: " + parseInt("2n9c", 36));
+
+    // --- Math functions ---
+    alert("Random: " + Math.random());
+    alert("Max: " + Math.max(3,5,-10,0,1));
+    alert("Min: " + Math.min(1,2));
+    alert("Pow: " + Math.pow(2,10));
+
+    // --- Sum Numbers ---
+    let a = +prompt("First number?", "");
+    let b = +prompt("Second number?", "");
+    alert("Sum: " + (a+b));
+
+    // --- Round 6.35 ---
+    alert("6.35 round: " + (Math.round(6.35*10)/10));
+
+    // --- Repeat Input ---
+    function readNumber() {
+      let num;
+      do {
+        num = prompt("Enter number?", 0);
+      } while(!isFinite(num));
+      if(num === null || num === '') return null;
+      return +num;
+    }
+    alert("Read: " + readNumber());
+
+    // --- Infinite Loop Demo ---
+    let i = 0;
+    while(i < 11) {
+      i += 0.2;
+      if(i > 9.8 && i < 10.2) alert("Loop i: " + i);
+    }
+
+    // --- Random Float ---
+    function random(min,max){
+      return min + Math.random()*(max-min);
+    }
+    alert("Random: " + random(1,5));
+
+    // --- Random Integer ---
+    function randomInteger(min,max){
+      let rand = min-0.5 + Math.random()*(max-min+1);
+      return Math.round(rand);
+    }
+    alert("Rand Int: " + randomInteger(1,3));
+  </script>
+</body>
+</html>

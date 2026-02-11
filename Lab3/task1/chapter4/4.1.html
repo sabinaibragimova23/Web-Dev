@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays Demo</title>
+</head>
+<body>
+  <h1>JavaScript Arrays Demo</h1>
+  <p>Open the console to see results (F12 → Console)</p>
+
+  <script>
+
+    // 1. Array copy by reference
+    let fruits = ["Apples", "Pear", "Orange"];
+    let shoppingCart = fruits; // copy reference
+    shoppingCart.push("Banana");
+    console.log("1. Fruits array after push:", fruits); // ["Apples", "Pear", "Orange", "Banana"]
+    console.log("Length:", fruits.length);
+
+    // 2. Array operations: push, shift, unshift, replace middle
+    let styles = ["Jazz", "Blues"];
+    styles.push("Rock-n-Roll"); // add to end
+    styles[Math.floor((styles.length - 1)/2)] = "Classics"; // replace middle element
+    console.log("\n2. Styles array:", styles);
+    console.log("Removed first element:", styles.shift()); // remove first
+    styles.unshift("Rap", "Reggae"); // add to beginning
+    console.log("After unshift:", styles); // ["Rap","Reggae","Classics","Rock-n-Roll"]
+
+    // 3. Calling function stored in array
+    let arrFunc = ["a", "b"];
+    arrFunc.push(function() {
+      console.log("\n3. Calling function inside array:");
+      console.log(this); // this references the array
+    });
+    arrFunc[2](); // show the array
+
+    // 4. Sum of input numbers
+    function sumInput() {
+      let numbers = [];
+      while (true) {
+        let value = prompt("Enter a number", 0);
+        if (value === "" || value === null || !isFinite(value)) break;
+        numbers.push(+value); // convert to number
+      }
+      let sum = 0;
+      for (let number of numbers) sum += number;
+      return sum;
+    }
+    // Uncomment to test sumInput:
+    // alert("Sum of input numbers: " + sumInput());
+
+    // 5. Maximal subarray sum
+    function getMaxSubSum(arr) {
+      let maxSum = 0;
+      let partialSum = 0;
+      for (let item of arr) {
+        partialSum += item;
+        maxSum = Math.max(maxSum, partialSum);
+        if (partialSum < 0) partialSum = 0;
+      }
+      return maxSum;
+    }
+
+    let testArr = [-1, 2, 3, -9, 11];
+    console.log("\n5. Maximal subarray sum for", testArr, ":", getMaxSubSum(testArr)); // 11
+
+    // 6. Multi-dimensional arrays
+    let matrix = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9]
+    ];
+    console.log("\n6. matrix[0][1]:", matrix[0][1]); // 2
+
+    // 7. Access last element with at()
+    console.log("\n7. Last fruit using at():", fruits.at(-1)); // Banana
+
+    // 8. Array + string examples
+    console.log("\n8. [] + 1:", [] + 1); // "1"
+    console.log("[1] + 1:", [1] + 1); // "11"
+    console.log("[1,2] + 1:", [1,2] + 1); // "1,21"
+
+    // 9. Length property and truncation
+    let arrLen = [1,2,3,4,5];
+    arrLen.length = 2; // truncate
+    console.log("\n9. Truncated array:", arrLen); // [1,2]
+  </script>
+</body>
+</html>

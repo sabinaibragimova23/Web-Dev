@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Objects Tasks</title>
+</head>
+<body>
+  <h1>JS Objects Tasks</h1>
+
+  <script>
+    // 1. hello, object
+    let user = {};           // create empty object
+    user.name = "John";      // add name
+    user.surname = "Smith";  // add surname
+    user.name = "Pete";      // change name
+    delete user.name;        // remove name
+    console.log("1. hello, object:", user);
+
+    // 2. check for emptiness
+    function isEmpty(obj) {
+      for (let key in obj) {
+        return false; // if at least one property exists
+      }
+      return true;    // no properties found
+    }
+    let schedule = {};
+    console.log("2. check empty schedule:", isEmpty(schedule)); // true
+    schedule["8:30"] = "get up";
+    console.log("2. check non-empty schedule:", isEmpty(schedule)); // false
+
+    // 3. sum object properties
+    let salaries = { John: 100, Ann: 160, Pete: 130 };
+    let sum = 0;
+    for (let key in salaries) {
+      sum += salaries[key]; // add all values
+    }
+    console.log("3. sum of salaries:", sum); // 390
+
+    // 4. multiply numeric property values by 2
+    function multiplyNumeric(obj) {
+      for (let key in obj) {
+        if (typeof obj[key] === 'number') {
+          obj[key] *= 2; // double numeric values
+        }
+      }
+    }
+    let menu = { width: 200, height: 300, title: "My menu" };
+    multiplyNumeric(menu);
+    console.log("4. multiplied numeric menu:", menu);
+
+    // 5. using dot and square brackets
+    let product = { name: "apple", price: 5 };
+    console.log("5. dot notation:", product.name);         // apple
+    console.log("5. square brackets:", product["price"]); // 5
+    let key = "name";
+    console.log("5. square brackets with variable:", product[key]); // apple
+
+    // 6. computed properties
+    let fruit = "banana";
+    let basket = { [fruit + "Count"]: 10 };
+    console.log("6. computed property:", basket.bananaCount); // 10
+
+    // 7. in operator
+    let obj = { test: undefined };
+    console.log("7. 'test' in obj:", "test" in obj); // true
+    console.log("7. check non-existent prop:", "none" in obj); // false
+
+    // 8. for..in loop
+    let user2 = { name: "Alice", age: 25, admin: true };
+    console.log("8. for..in keys and values:");
+    for (let key in user2) {
+      console.log(key, ":", user2[key]);
+    }
+
+    // 9. integer vs non-integer keys
+    let codes = { "49": "Germany", "41": "Switzerland", "1": "USA" };
+    console.log("9. integer keys sorted:");
+    for (let code in codes) {
+      console.log(code); // 1, 41, 49
+    }
+    let codes2 = { "+49": "Germany", "+41": "Switzerland", "+1": "USA" };
+    console.log("9. non-integer keys order:");
+    for (let code in codes2) {
+      console.log(code); // +49, +41, +1
+    }
+  </script>
+</body>
+</html>

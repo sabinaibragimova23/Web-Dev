@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Object References & Copying</title>
+</head>
+<body>
+  <h1>JS Object References & Copying</h1>
+
+  <script>
+    // 1. primitive copy
+    let message = "Hello!";
+    let phrase = message; // independent copy
+    phrase = "Hi!";
+    console.log("1. primitive copy:", message, phrase); // Hello! Hi!
+
+    // 2. object reference
+    let user = { name: "John" };
+    let admin = user;     // copy reference
+    admin.name = "Pete";  // modifies original object
+    console.log("2. object reference:", user.name); // Pete
+
+    // 3. comparison by reference
+    let a = {};
+    let b = a; // same object
+    console.log("3. a==b:", a==b, "a===b:", a===b); // true true
+    let c = {};
+    console.log("3. {}=={}:", {}=={}); // false, different objects
+
+    // 4. const object modification
+    const user2 = { name: "John" };
+    user2.name = "Pete"; // allowed
+    console.log("4. const object modification:", user2.name); // Pete
+
+    // 5. cloning object manually
+    let user3 = { name: "John", age: 30 };
+    let clone1 = {};
+    for (let key in user3) {
+      clone1[key] = user3[key]; // shallow copy
+    }
+    clone1.name = "Pete";
+    console.log("5. manual clone:", user3.name, clone1.name); // John Pete
+
+    // 6. Object.assign cloning and merging
+    let user4 = { name: "John" };
+    let perms1 = { canView: true };
+    let perms2 = { canEdit: true };
+    Object.assign(user4, perms1, perms2);
+    console.log("6. assign merge:", user4);
+
+    // 7. Object.assign cloning example
+    let user5 = { name: "John", age: 30 };
+    let clone2 = Object.assign({}, user5); // shallow copy
+    clone2.name = "Pete";
+    console.log("7. assign clone:", user5.name, clone2.name); // John Pete
+
+    // 8. nested object shallow cloning
+    let user6 = {
+      name: "John",
+      sizes: { height: 182, width: 50 }
+    };
+    let clone3 = Object.assign({}, user6); // shallow copy
+    console.log("8. shallow clone nested ===:", user6.sizes===clone3.sizes); // true
+    user6.sizes.width = 60;
+    console.log("8. shallow clone effect:", clone3.sizes.width); // 60
+
+    // 9. deep cloning with structuredClone
+    let user7 = {
+      name: "John",
+      sizes: { height: 182, width: 50 }
+    };
+    let clone4 = structuredClone(user7);
+    console.log("9. deep clone nested ===:", user7.sizes===clone4.sizes); // false
+    user7.sizes.width = 60;
+    console.log("9. deep clone effect:", clone4.sizes.width); // 50
+
+    // 10. deep clone with circular reference
+    let user8 = {};
+    user8.me = user8; // circular reference
+    let clone5 = structuredClone(user8);
+    console.log("10. circular reference clone:", clone5.me===clone5); // true
+  </script>
+</body>
+</html>

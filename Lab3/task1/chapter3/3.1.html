@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>objects and this</title>
+</head>
+<body>
+  <h1>object methods and this</h1>
+
+  <!-- make user -->
+  <h2>1. makeUser this</h2>
+  <button id="userBtn">show name via ref()</button>
+
+  <!-- calculator -->
+  <h2>2. calculator</h2>
+  <button id="calcBtn">enter numbers and show results</button>
+
+  <!-- ladder -->
+  <h2>3. ladder</h2>
+  <button id="ladderBtn">climb and show steps</button>
+
+  <!-- say hi -->
+  <h2>4. sayHi method</h2>
+  <button id="sayHiBtn">greet user</button>
+
+  <script>
+    // make user
+    function makeUser() {
+      return {
+        name: "John",
+        ref() { 
+          return this; 
+        }
+      };
+    }
+    let userObj = makeUser();
+    document.getElementById("userBtn").onclick = () => {
+      alert(userObj.ref().name); // John
+    };
+
+    // calculator
+    let calculator = {
+      read() {
+        this.a = +prompt("enter a?", 0);
+        this.b = +prompt("enter b?", 0);
+      },
+      sum() {
+        return this.a + this.b;
+      },
+      mul() {
+        return this.a * this.b;
+      }
+    };
+    document.getElementById("calcBtn").onclick = () => {
+      calculator.read();
+      alert("sum: " + calculator.sum());
+      alert("product: " + calculator.mul());
+    };
+
+    // ladder
+    let ladder = {
+      step: 0,
+      up() { this.step++; return this; },
+      down() { this.step--; return this; },
+      showStep() { alert("current step: " + this.step); return this; }
+    };
+    document.getElementById("ladderBtn").onclick = () => {
+      ladder.up().up().down().showStep().down().showStep();
+    };
+
+    // say hi
+    let userSay = {
+      name: "John",
+      sayHi() { alert("Hello, " + this.name + "!"); }
+    };
+    document.getElementById("sayHiBtn").onclick = () => {
+      userSay.sayHi();
+    };
+  </script>
+</body>
+</html>

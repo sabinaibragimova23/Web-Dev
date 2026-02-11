@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>logical operators</title>
+</head>
+<body>
+<script>
+    // or result
+    alert(null || 2 || undefined);
+
+    // or with alerts
+    alert(alert(1) || 2 || alert(3));
+
+    // and result
+    alert(1 && null && 2);
+
+    // and with alerts
+    alert(alert(1) && alert(2));
+
+    // or and or
+    alert(null || 2 && 3 || 4);
+
+    // range check
+    let age = 20;
+    if (age >= 14 && age <= 90) {
+        alert("in range");
+    }
+
+    // range outside (not)
+    if (!(age >= 14 && age <= 90)) {
+        alert("outside range");
+    }
+
+    // range outside (or)
+    if (age < 14 || age > 90) {
+        alert("outside range");
+    }
+
+    // if logic
+    if (-1 || 0) alert("first");
+    if (-1 && 0) alert("second");
+    if (null || -1 && 1) alert("third");
+
+    // login check
+    let userName = prompt("who's there?", "");
+
+    if (userName === "Admin") {
+        let pass = prompt("password?", "");
+
+        if (pass === "TheMaster") {
+            alert("Welcome!");
+        } else if (pass === "" || pass === null) {
+            alert("Canceled");
+        } else {
+            alert("Wrong password");
+        }
+
+    } else if (userName === "" || userName === null) {
+        alert("Canceled");
+    } else {
+        alert("I don't know you");
+    }
+</script>
+</body>
+</html>

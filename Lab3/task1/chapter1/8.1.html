@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>basic operators and maths</title>
+</head>
+<body>
+<script>
+    // prefix and postfix examples
+    let a = 1, b = 1;
+    let c = ++a; // prefix: increments first, returns new value
+    let d = b++; // postfix: returns old value, then increments
+    alert(`a=${a}, b=${b}, c=${c}, d=${d}`);
+
+    // assignment with calculation
+    let xVar = 2;
+    let x = 1 + (xVar *= 2); // multiply xVar by 2, then add 1
+    alert(`xVar=${xVar}, x=${x}`);
+
+    // type conversions examples
+    alert("" + 1 + 0); // string concatenation, result "10"
+    alert("" - 1 + 0); // empty string converts to 0, result -1
+    alert(true + false); // true=1, false=0, result 1
+    alert(6 / "3"); // string converted to number, result 2
+    alert("2" * "3"); // both strings converted to numbers, result 6
+    alert(4 + 5 + "px"); // number + number then string, result "9px"
+    alert("$" + 4 + 5); // all converted to string, result "$45"
+    alert("4" - 2); // string converted to number, result 2
+    alert("4px" - 2); // cannot convert "4px", result NaN
+    alert("  -9  " + 5); // string concatenation with spaces, result "  -9  5"
+    alert("  -9  " - 5); // string converted to number, result -14
+    alert(null + 1); // null becomes 0, result 1
+    alert(undefined + 1); // undefined becomes NaN, result NaN
+    alert(" \t \n" - 2); // whitespace string converts to 0, result -2
+
+    // fix prompt addition
+    let aPrompt = +prompt("first number?", 1); // unary plus converts string to number
+    let bPrompt = +prompt("second number?", 2);
+    alert(aPrompt + bPrompt); // shows correct sum
+</script>
+</body>
+</html>

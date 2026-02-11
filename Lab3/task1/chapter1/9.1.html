@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>comparison operators</title>
+</head>
+<body>
+<script>
+    // basic comparison examples
+    alert(2 > 1);  // true, 2 is greater than 1
+    alert(2 == 1); // false, 2 is not equal to 1
+    alert(2 != 1); // true, 2 is not equal to 1
+
+    // assign comparison result to a variable
+    let result = 5 > 4; // true
+    alert(result);
+
+    // string comparison - lexicographical/dictionary order
+    alert('Z' > 'A');        // true, z comes after a in unicode
+    alert('Glow' > 'Glee');  // true, compare letter by letter: o > e
+    alert('Bee' > 'Be');     // true, longer string is greater if prefix same
+
+    // comparison of different types - automatic conversion to number
+    alert('2' > 1);   // true, '2' becomes number 2
+    alert('01' == 1); // true, '01' becomes number 1
+
+    // boolean conversion in comparison
+    alert(true == 1);  // true
+    alert(false == 0); // true
+
+    // funny consequence
+    let a = 0;
+    alert(Boolean(a)); // false, 0 converts to false
+    let b = "0";
+    alert(Boolean(b)); // true, non-empty string converts to true
+    alert(a == b);     // true, numeric conversion: 0 == 0
+
+    // strict equality avoids type conversion
+    alert(0 === false); // false, different types
+    alert('' === false); // false, different types
+
+    // strict non-equality
+    alert(0 !== false); // true, types are different
+
+    // null and undefined
+    alert(null === undefined); // false, strict equality, types differ
+    alert(null == undefined);  // true, non-strict equality special rule
+
+    // math comparisons with null
+    alert(null > 0);  // false, null converts to 0, 0 > 0 is false
+    alert(null == 0); // false, null only equals undefined
+    alert(null >= 0); // true, null converts to 0, 0 >= 0 is true
+
+    // undefined comparisons
+    alert(undefined > 0);  // false, undefined becomes NaN
+    alert(undefined < 0);  // false, NaN comparison
+    alert(undefined == 0); // false, undefined only equals null
+
+    // tasks / practice examples
+    alert(5 > 4);               // true
+    alert("apple" > "pineapple"); // false, dictionary comparison, a < p
+    alert("2" > "12");           // true, first char "2" > "1"
+    alert(undefined == null);    // true, special == rule
+    alert(undefined === null);   // false, strict equality
+    alert(null == "\n0\n");      // false, null only equals undefined
+    alert(null === +"\n0\n");    // false, strict equality and different types
+
+    // strict equality recommended
+    let val1 = 0;
+    let val2 = false;
+    if(val1 === val2){
+        alert("equal"); // won't run, strict equality is safe
+    } else {
+        alert("not equal"); // runs, types differ
+    }
+</script>
+</body>
+</html>

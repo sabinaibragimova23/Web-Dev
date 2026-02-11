@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Polyfill & Transpiler Example</title>
+</head>
+<body>
+<script>
+  // пример полифилла для Math.trunc
+  if (!Math.trunc) {
+    Math.trunc = function(number) {
+      return number < 0 ? Math.ceil(number) : Math.floor(number);
+    };
+  }
+
+  // современный синтаксис
+  let a = null;
+  let height = a ?? 100; 
+
+  console.log("Height:", height);
+  console.log("Trunc of 1.23:", Math.trunc(1.23));
+</script>
+</body>
+</html>

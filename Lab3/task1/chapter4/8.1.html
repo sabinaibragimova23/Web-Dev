@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeakMap & WeakSet Demo</title>
+</head>
+<body>
+  <h1>WeakMap & WeakSet Demo</h1>
+  <div id="output"></div>
+
+  <script>
+    const out = document.getElementById('output');
+    function log(msg){ out.innerHTML += msg + "<br>"; }
+
+
+    let messages = [
+      {text:"Hello", from:"John"},
+      {text:"How goes?", from:"John"},
+      {text:"See you soon", from:"Alice"}
+    ];
+
+    let readMap = new WeakMap();
+    readMap.set(messages[0], new Date());
+    log("Message 0 read at: " + readMap.get(messages[0]));
+
+   
+    let readSet = new WeakSet();
+    readSet.add(messages[1]);
+    log("Message 1 read? " + readSet.has(messages[1]));
+
+
+    messages.shift();
+   
+    log("First message removed. WeakMap/WeakSet cleaned automatically.");
+
+  </script>
+</body>
+</html>

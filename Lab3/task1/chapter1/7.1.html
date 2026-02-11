@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Type Conversions</title>
+</head>
+<body>
+<script>
+
+    let value = true;
+    alert(typeof value); // boolean
+    value = String(value);
+    alert(typeof value); // string
+
+
+    let str = "123";
+    alert(typeof str); // string
+    let num = Number(str);
+    alert(typeof num); // number
+
+
+    alert(Number("   123   ")); // 123
+    alert(Number("123z"));      // NaN
+    alert(Number(true));        // 1
+    alert(Number(false));       // 0
+    alert(Number(null));        // 0
+    alert(Number(undefined));   // NaN
+
+
+    alert(Boolean(1));       // true
+    alert(Boolean(0));       // false
+    alert(Boolean("hello")); // true
+    alert(Boolean(""));      // false
+    alert(Boolean("0"));     // true
+    alert(Boolean(" "));     // true
+</script>
+</body>
+</html>

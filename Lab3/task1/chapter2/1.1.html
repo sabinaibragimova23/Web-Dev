@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Calculator</title>
+</head>
+<body>
+  <h1>Power Calculator</h1>
+  <p>Enter a number and its exponent to calculate xⁿ.</p>
+
+  <script>
+   
+    function pow(x, n) {
+      let result = 1;
+
+      for (let i = 0; i < n; i++) {
+        result *= x;
+      }
+
+      return result;
+    }
+
+   
+    let x = prompt("Enter the base number x:", "");
+    let n = prompt("Enter the exponent n:", "");
+
+    
+    x = Number(x);
+    n = Number(n);
+
+  
+    if (n <= 0) {
+      alert(`Power ${n} is not supported,
+please enter an integer number greater than zero`);
+    } else {
+    
+      alert(`Result: ${pow(x, n)}`);
+    }
+  </script>
+</body>
+</html>

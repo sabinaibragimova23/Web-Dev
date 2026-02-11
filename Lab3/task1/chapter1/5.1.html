@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Types</title>
+</head>
+<body>
+
+<script>
+"use strict";
+
+// Number
+let n = 123;
+let float = 12.345;
+alert(n);
+alert(float);
+alert(1 / 0);        // Infinity
+alert("text" / 2);   // NaN
+
+// BigInt
+const bigNumber = 123456789012345678901234567890n;
+alert(bigNumber);
+
+// String
+let str1 = "Hello";
+let str2 = 'World';
+let names = "John";
+let phrase = `Hello, ${name}!`;
+alert(str1);
+alert(str2);
+alert(phrase);
+
+// Boolean
+let isGreater = 4 > 1;
+alert(isGreater);
+
+// null
+let age = null;
+alert(age);
+
+// undefined
+let value;
+alert(value);
+
+// typeof
+alert(typeof 123);
+alert(typeof 10n);
+alert(typeof "text");
+alert(typeof true);
+alert(typeof undefined);
+alert(typeof null);
+alert(typeof alert);
+
+let name = "Ilya";
+
+// the expression is a number 1
+alert( `hello ${1}` ); // hello 1
+
+// the expression is a string "name"
+alert( `hello ${"name"}` ); // hello name
+
+// the expression is a variable, embed it
+alert( `hello ${name}` ); // hello Ilya
+</script>
+
+</body>
+</html>
