@@ -1,0 +1,48 @@
+<div class="card"
+     [class.active]="isActive"
+     (click)="toggleActive()">
+  <div class="gallery">
+    <button class="nav" type="button" (click)="prevImage()">‹</button>
+
+    <div class="thumbs">
+      @for (img of product.images; track $index) {
+        <button class="thumb" type="button" [class.active]="$index === selectedImageIndex" (click)="setImage($index)">
+          <img [src]="img" [alt]="product.name" />
+        </button>
+      }
+    </div>
+
+    <a class="image-wrap" [href]="product.link" target="_blank" rel="noopener">
+  <img class="main-image" [src]="selectedImage" [alt]="product.name" />
+</a>
+
+    <button class="nav" type="button" (click)="nextImage()">›</button>
+  </div>
+
+  <div class="content">
+    <h3 class="title">
+      <a [href]="product.link" target="_blank" rel="noopener">{{ product.name }}</a>
+    </h3>
+
+    <p class="desc">{{ product.description }}</p>
+
+    <div class="meta">
+      <div class="price">{{ product.price | number }} ₸</div>
+
+      <div class="rating">
+        <span class="badge">{{ product.rating }}</span>
+        <span class="stars">
+          @for (s of stars(); track s) {
+            <span class="star" [class.filled]="s <= filledStarsCount()">★</span>
+          }
+        </span>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a class="btn" [href]="product.link" target="_blank" rel="noopener">Open in Kaspi</a>
+      <a class="btn outline" [href]="whatsappShareUrl()" target="_blank" rel="noopener">Share WhatsApp</a>
+      <a class="btn outline" [href]="telegramShareUrl()" target="_blank" rel="noopener">Share Telegram</a>
+    </div>
+  </div>
+</div>
