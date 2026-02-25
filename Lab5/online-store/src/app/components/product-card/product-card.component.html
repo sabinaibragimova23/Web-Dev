@@ -1,0 +1,49 @@
+<div class="card" *ngIf="product as p">
+  <div class="imgWrap" (click)="openKaspi()">
+    <img [src]="mainImage" [alt]="p.name" />
+  </div>
+
+  <div class="content">
+    <h3 class="title" (click)="openKaspi()">{{ p.name }}</h3>
+    <p class="desc">{{ p.description }}</p>
+
+    <div class="row">
+      <div class="price">{{ p.price | number }} ₸</div>
+      <div class="rating">
+        <span *ngFor="let s of stars()">
+          {{ s ? '★' : '☆' }}
+        </span>
+        <span class="ratingNum">{{ p.rating }}</span>
+      </div>
+    </div>
+
+    <div class="thumbs" *ngIf="p.images?.length">
+      <button
+        class="thumb"
+        *ngFor="let img of p.images; let i = index"
+        (click)="selectImage(i)"
+        [class.active]="i === selectedImageIndex"
+        type="button"
+      >
+        <img [src]="img" [alt]="p.name + ' ' + i" />
+      </button>
+    </div>
+
+    <div class="top-actions">
+  <button class="btn btn-like" type="button" (click)="like()">
+    ❤️ {{ p.likes }}
+  </button>
+
+
+      <button class="btn btn-del" type="button" (click)="onDelete()">
+        Delete
+      </button>
+    </div>
+
+    <div class="actions">
+      <a class="btn" [href]="p.link" target="_blank">Open on Kaspi</a>
+      <button class="btn" type="button" (click)="shareWhatsapp()">WhatsApp</button>
+      <button class="btn" type="button" (click)="shareTelegram()">Telegram</button>
+    </div>
+  </div>
+</div>

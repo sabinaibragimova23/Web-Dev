@@ -1,54 +1,40 @@
-
 const form = document.getElementById('todo-form');
 const input = document.getElementById('todo-input');
 const todoList = document.getElementById('todo-list');
 
 
-form.addEventListener('submit', function (e) {
+form.addEventListener('submit', e => {
     e.preventDefault();
-
-    const taskText = input.value.trim();
-    if (!taskText) return; 
-
-    addTodoItem(taskText);
-    input.value = ''; 
+    const text = input.value.trim();
+    if (!text) return;
+    addTodoItem(text);
+    input.value = '';
 });
 
 
-function addTodoItem(text) {
+const addTodoItem = text => {
+    const li = document.createElement('li');
+    li.className = 'todo-item';
+    li.innerHTML = `
+        <div class="todo-left">
+            <input type="checkbox" class="todo-checkbox">
+            <span class="todo-text">${text}</span>
+        </div>
+        <button class="delete-btn">Delete</button>
+    `;
+    if(confirm('This task is urgent?')){
+        todoList.addChild(li);
+    }
+    todoList.appendChild(li);
+};
 
-    const listItem = document.createElement('li');
-    listItem.className = 'todo-item';
 
+todoList.addEventListener('click', e => {
+    if (e.target.classList.contains('delete-btn')) {
+        e.target.closest('li').remove();
+    } else if (e.target.classList.contains('todo-checkbox')) {
+        e.target.nextElementSibling.classList.toggle('done');
+    }
+});
 
-    const leftSection = document.createElement('div');
-    leftSection.className = 'todo-left';
-
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-
-    const span = document.createElement('span');
-    span.textContent = text;
-    span.className = 'todo-text';
-
-    checkbox.addEventListener('change', () => {
-        span.classList.toggle('done');
-    });
-
-    const deleteButton = document.createElement('button');
-    deleteButton.textContent = 'Delete';
-    deleteButton.className = 'delete-btn';
-
-    deleteButton.addEventListener('click', () => {
-        todoList.removeChild(listItem);
-    });
-
-    leftSection.appendChild(checkbox);
-    leftSection.appendChild(span);
-
-    listItem.appendChild(leftSection);
-    listItem.appendChild(deleteButton);
-
-    todoList.appendChild(listItem);
-}
 

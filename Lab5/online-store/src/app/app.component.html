@@ -1,0 +1,24 @@
+<div class="app">
+  <h1 class="h1">Online Store</h1>
+
+  <div class="categories">
+    <button
+      class="cat"
+      *ngFor="let c of categories"
+      (click)="selectCategory(c.id)"
+      [class.active]="c.id === selectedCategoryId"
+      type="button"
+    >
+      {{ c.name }}
+    </button>
+  </div>
+
+  <app-product-list
+  [products]="filteredProducts"
+  (deleteProduct)="handleDelete($event)">
+</app-product-list>
+
+  <ng-template #choose>
+    <p class="hint">Select a category to see products</p>
+  </ng-template>
+</div>

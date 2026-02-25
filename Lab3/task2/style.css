@@ -12,7 +12,7 @@ body {
 
 
 .header {
-    background-color: #4f46e5;
+    background-color: #e646d6;
     color: white;
     padding: 1rem;
     text-align: center;
@@ -55,7 +55,7 @@ body {
     padding: 0.5rem 1rem;
     font-size: 1rem;
     cursor: pointer;
-    background-color: #4f46e5;
+    background-color: #d546e5;
     color: white;
     border: none;
     border-radius: 4px;
