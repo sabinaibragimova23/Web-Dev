@@ -1,0 +1,14 @@
+<h1>Album {{ albumId }} Photos</h1>
+
+<p *ngIf="loading">Loading...</p>
+
+<div class="grid" *ngIf="!loading">
+  <div class="card" *ngFor="let p of photos">
+<img 
+  [src]="'https://picsum.photos/id/' + p.id + '/150/150'"
+  [alt]="p.title"
+  (error)="setFallback($event)"><div>{{ p.title }}</div>
+  </div>
+</div>
+
+<button (click)="back()">Back</button>
