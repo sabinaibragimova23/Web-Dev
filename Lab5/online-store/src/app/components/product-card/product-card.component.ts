@@ -27,7 +27,7 @@ export class ProductCardComponent {
   }
 
   like(): void {
-    this.product.likes++;
+  this.product.liked = !this.product.liked;
   }
 
  onDelete(): void {
@@ -56,4 +56,6 @@ export class ProductCardComponent {
   selectImage(i: number): void {
     this.selectedImageIndex = i;
   }
+
+  
 }

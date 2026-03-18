@@ -21,7 +21,7 @@ export const ACCESSORIES: Product[] = [
     image: 'assets/images/p1-1.jpg',
     images: ['assets/images/p1-1.jpg'],
     link: 'https://kaspi.kz/shop/p/popsoket-002-rozovyi-122283935/?c=750000000',
-    likes: 0,
+    liked: false,
   },
 
   {
@@ -34,7 +34,7 @@ export const ACCESSORIES: Product[] = [
     image: 'assets/images/p6-1.jpg',
     images: ['assets/images/p6-1.jpg'],
     link: 'https://kaspi.kz/shop/p/sumka-portcase-9011-do-15-6-chernyi-108895248/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ export const ACCESSORIES: Product[] = [
     image: 'assets/images/p11-1.jpg',
     images: ['assets/images/p11-1.jpg'],
     link: 'https://kaspi.kz/shop/p/chehol-jasper-dlja-apple-iphone-17-pro-prozrachnyi-146498145/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 4,
@@ -58,7 +58,7 @@ export const ACCESSORIES: Product[] = [
     image: 'assets/images/p12-1.jpg',
     images: ['assets/images/p12-1.jpg'],
     link: 'https://kaspi.kz/shop/p/kabel-varium-usb-2-0-m-usb-typec-m-1-m-vt-199-belyi-139723676/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 5,
@@ -70,7 +70,7 @@ export const ACCESSORIES: Product[] = [
     image: 'assets/images/p13-1.jpg',
     images: ['assets/images/p13-1.jpg'],
     link: 'https://kaspi.kz/shop/p/chehol-dlja-apple-iphone-15-pro-rozovyi-115033690/?c=750000000',
-    likes: 0,
+    liked: false,
   }
 ];
 
@@ -87,7 +87,7 @@ export const HOME: Product[] = [
     image: 'assets/images/p3-1.jpg',
     images: ['assets/images/p3-1.jpg'],
     link: 'https://kaspi.kz/shop/p/el-8l-8-l-chernyi-116751664/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 7,
@@ -99,7 +99,7 @@ export const HOME: Product[] = [
     image: 'assets/images/p4-1.jpg',
     images: ['assets/images/p4-1.jpg'],
     link: 'https://kaspi.kz/shop/p/otparivatel-aventix-par200-fioletovyi-144751155/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 8,
@@ -111,7 +111,7 @@ export const HOME: Product[] = [
     image: 'assets/images/p14-1.jpg',
     images: ['assets/images/p14-1.jpg'],
     link: 'https://kaspi.kz/shop/p/uvlazhnitel-vozduha-rmxx-sc-2407-belyi-137291298/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 9,
@@ -123,7 +123,7 @@ export const HOME: Product[] = [
     image: 'assets/images/p15-1.jpg',
     images: ['assets/images/p15-1.jpg'],
     link: 'https://kaspi.kz/shop/p/generic-sf-400-102531445/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 10,
@@ -135,7 +135,7 @@ export const HOME: Product[] = [
     image: 'assets/images/p17.jpg',
     images: ['assets/images/p17.jpg'],
     link: 'https://kaspi.kz/shop/p/paroochistitel-atreon-dfhs-01-belyi-chernyi-142540734/?c=750000000',
-    likes: 0,
+    liked: false,
   }
 ];
 
@@ -152,7 +152,7 @@ export const ELECTRONICS: Product[] = [
     image: 'assets/images/p2-1.jpg',
     images: ['assets/images/p2-1.jpg'],
     link: 'https://kaspi.kz/shop/p/ainomi-a1-premium-power-chernyi-mokryi-asfal-t-137712147/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 12,
@@ -164,7 +164,7 @@ export const ELECTRONICS: Product[] = [
     image: 'assets/images/p5-1.jpg',
     images: ['assets/images/p5-1.jpg'],
     link: 'https://kaspi.kz/shop/p/proektor-salange-hy300-115371965/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 13,
@@ -176,7 +176,7 @@ export const ELECTRONICS: Product[] = [
     image: 'assets/images/p16-1.jpg',
     images: ['assets/images/p16-1.jpg'],
     link: 'https://kaspi.kz/shop/p/naushniki-air-pro-2-belyi-118366664/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 14,
@@ -188,7 +188,7 @@ export const ELECTRONICS: Product[] = [
     image: 'assets/images/p18.jpg',
     images: ['assets/images/p18.jpg'],
     link: 'https://kaspi.kz/shop/p/naushniki-gerlax-gh-34-chernyi-119492193/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 15,
@@ -200,7 +200,7 @@ export const ELECTRONICS: Product[] = [
     image: 'assets/images/p19.jpg',
     images: ['assets/images/p19.jpg'],
     link: 'https://kaspi.kz/shop/p/jandeks-stantsija-lait-yndx-00025-fioletovyi-101870266/?c=750000000',
-    likes: 0,
+    liked: false,
   }
 ];
 
@@ -217,7 +217,7 @@ export const BEAUTY: Product[] = [
     image: 'assets/images/p8-1.jpg',
     images: ['assets/images/p8-1.jpg'],
     link: 'https://kaspi.kz/shop/p/dr-althea-krem-147-barrier-dlja-litsa-50-ml-104958422/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 17,
@@ -229,7 +229,7 @@ export const BEAUTY: Product[] = [
     image: 'assets/images/p20-1.jpg',
     images: ['assets/images/p20-1.jpg'],
     link: 'https://kaspi.kz/shop/p/dmnd-sponzh-skoshennyi-sponzh-kaplja-poliuretan-2-sht-rozovyi-104557208/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 18,
@@ -241,7 +241,7 @@ export const BEAUTY: Product[] = [
     image: 'assets/images/p10-1.jpg',
     images: ['assets/images/p10-1.jpg'],
     link: 'https://kaspi.kz/shop/p/konstruktor-mainkraft-magnitnye-kubiki-15415400-564061142-detalei-173-sht-137014131/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 19,
@@ -253,7 +253,7 @@ export const BEAUTY: Product[] = [
     image: 'assets/images/p18-1.jpg',
     images: ['assets/images/p18-1.jpg'],
     link: 'https://kaspi.kz/shop/p/groinneya-tj-05-puchkovye-c-0-03-mm-chernyi-mix-8-16-mm-130803713/?c=750000000',
-    likes: 0,
+    liked: false,
   },
   {
     id: 20,
@@ -265,7 +265,7 @@ export const BEAUTY: Product[] = [
     image: 'assets/images/p19-1.jpg',
     images: ['assets/images/p19-1.jpg'],
     link: 'https://kaspi.kz/shop/p/luxvisage-gel-brow-laminator-extreme-fix-prozrachnyi-4-ml-121516864/?c=750000000',
-    likes: 0,
+    liked: false,
   }
 ];
 

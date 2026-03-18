@@ -11,5 +11,21 @@ import { PRODUCTS } from '../../data/products';
   styleUrl: './product-list.component.css',
 })
 export class ProductListComponent {
-  products = PRODUCTS;
-}
+
+  products: Product[] = PRODUCTS;
+
+  
+  minPrice: number | null = null;
+  maxPrice: number | null = null;
+
+
+  get filteredProducts(): Product[] {
+    return this.products.filter(p => {
+      const okMin = this.minPrice === null || p.price >= this.minPrice;
+      const okMax = this.maxPrice === null || p.price <= this.maxPrice;
+      return okMin && okMax;
+    });
+  }
+
+} 
+

@@ -12,9 +12,10 @@ export class ProductItemComponent {
   product = input.required<Product>();
   delete = output<number>();
 
-  like() {
-    this.product().likes++;
-  }
+  like(): void {
+  this.product.liked = !this.product.liked;
+}
+
 
   remove() {
     this.delete.emit(this.product().id);

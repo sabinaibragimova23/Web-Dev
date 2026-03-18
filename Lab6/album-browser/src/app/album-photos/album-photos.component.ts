@@ -24,6 +24,7 @@ export class AlbumPhotosComponent implements OnInit {
 
   ngOnInit(): void {
     this.albumId = Number(this.route.snapshot.paramMap.get('id'));
+    const count = Number(localStorage.getItem('photoCount'));
 
     this.albumService.getAlbumPhotos(this.albumId).subscribe({
       next: (data) => {
@@ -34,6 +35,7 @@ export class AlbumPhotosComponent implements OnInit {
         console.error(err);
         this.loading = false;
       },
+      
     });
   }
 

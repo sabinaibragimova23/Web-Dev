@@ -8,6 +8,6 @@ export interface Product {
   images: string[];
   link: string;
 
-  likes: number;
+  liked: boolean;
   categoryId: number;
 }

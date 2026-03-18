@@ -34,17 +34,13 @@ export const PRODUCTS: Product[] = [
 
   {
     id: 3,
-    name: 'EL 8L отпариватель',
-    description: 'Мощный отпариватель для одежды объемом 8 литров.',
+    name: 'Аэрогриль EL-8L 8 л черный',
+    description: 'Мощный отпариватель для одежды.',
     price: 45990,
     rating: 4.2,
     image: 'assets/images/p3-1.jpg',
-    images: [
-      'assets/images/p3-1.jpg',
-      'assets/images/p3-2.jpg',
-      'assets/images/p3-3.jpg'
-    ],
-    link: 'https://kaspi.kz/shop/p/el-8l-8-l-chernyi-116751664/?c=750000000'
+    images: ['assets/images/p3-1.jpg'],
+    link: 'https://kaspi.kz/shop/p/el-8l-8-l-chernyi-116751664/?c=750000000',
   },
 
   {

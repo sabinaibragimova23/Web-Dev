@@ -14,6 +14,8 @@
     <label class="muted">Title</label>
     <input class="input" [(ngModel)]="editedTitle" />
 
+    
+
     <div class="actions">
       <button class="btn primary" (click)="save()">Save</button>
       <a class="btn" [routerLink]="['/albums', album.id, 'photos']">View Photos</a>
