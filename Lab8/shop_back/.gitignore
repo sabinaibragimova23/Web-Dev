@@ -1,9 +1,4 @@
-# виртуальное окружение
 venv/
-
-# кеши Python
 __pycache__/
 *.pyc
-
-# база данных SQLite
 db.sqlite3
