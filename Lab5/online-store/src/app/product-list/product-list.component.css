@@ -1,0 +1,8 @@
+.h1 { margin: 16px 0; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+.rating { font-size: 14px; }
+.ratingNum { color: #666; font-size: 12px; margin-left: 6px; }

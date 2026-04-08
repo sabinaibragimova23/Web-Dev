@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ninja Code Example</title>
+</head>
+<body>
+  <h1>Ninja Code Example</h1>
+
+  <script>
+    
+    function ninja(a) {
+      let b = a ? a < 0 ? 0 : a : 1; // ternary trick
+      let _data = b * 2;             // abstract and underscored variable
+      console.log('Result:', _data);
+      return _data;
+    }
+
+   
+    let x = prompt("Enter a number", "");
+    x = Number(x);
+
+    
+    function check(x) {
+      let x1 = x + 1;   // shadowing outer x
+      alert("Surprise: " + x1);
+      return x1 % 2 === 0; // returns boolean
+    }
+
+    if (check(x)) { 
+      ninja(x); // calls ninja with x
+    } else {
+      let data = x * 3; // reusing name 'data'
+      console.log('Other result:', data);
+    }
+  </script>
+</body>
+</html>

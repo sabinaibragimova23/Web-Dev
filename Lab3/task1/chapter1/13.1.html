@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>loops practice</title>
+</head>
+<body>
+
+<script>
+  // task 1: last loop value
+  let i1 = 3;
+  while (i1) {
+    alert(i1--); // shows 3, 2, 1
+  }
+
+  // task 2: while loop prefix ++i
+  let i2 = 0;
+  while (++i2 < 5) {
+    alert(i2); // shows 1 to 4
+  }
+
+  // task 3: while loop postfix i++
+  let i3 = 0;
+  while (i3++ < 5) {
+    alert(i3); // shows 1 to 5
+  }
+
+  // task 4: for loop prefix and postfix
+  for (let i4 = 0; i4 < 5; i4++) {
+    alert(i4); // shows 0 to 4
+  }
+
+  for (let i5 = 0; i5 < 5; ++i5) {
+    alert(i5); // shows 0 to 4
+  }
+
+  // task 5: output even numbers from 2 to 10
+  for (let i6 = 2; i6 <= 10; i6++) {
+    if (i6 % 2 === 0) {
+      alert(i6); // even numbers
+    }
+  }
+
+  // task 6: replace for with while
+  let i7 = 0;
+  while (i7 < 3) {
+    alert(`number ${i7}!`);
+    i7++;
+  }
+
+  // task 7: repeat until number > 100
+  let num;
+  do {
+    num = prompt("enter a number greater than 100", 0);
+  } while (num <= 100 && num);
+
+  // task 8: output prime numbers
+  let n = 10;
+
+  nextPrime:
+  for (let i8 = 2; i8 <= n; i8++) {
+    for (let j = 2; j < i8; j++) {
+      if (i8 % j === 0) continue nextPrime; // not prime
+    }
+    alert(i8); // prime number
+  }
+</script>
+
+</body>
+</html>

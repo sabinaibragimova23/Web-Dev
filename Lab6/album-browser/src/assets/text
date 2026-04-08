@@ -1,0 +1,90 @@
+
+  src/app/albums/albums.component.ts
+
+
+ngOnInit(): void {
+
+  const deletedAlbums = JSON.parse(localStorage.getItem('deletedAlbums') || '[]');
+
+  this.albumService.getAlbums().subscribe({
+    next: (data) => {
+      this.albums = data.filter(album => !deletedAlbums.includes(album.id));
+
+      this.loading = false;
+    },
+    error: () => {
+      this.loading = false;
+    },
+  });
+
+}
+
+
+deleteAlbum(id: number) {
+
+  this.albumService.deleteAlbum(id).subscribe({
+
+    next: () => {
+      this.albums = this.albums.filter(a => a.id !== id);
+
+      const deletedAlbums = JSON.parse(localStorage.getItem('deletedAlbums') || '[]');
+
+      if (!deletedAlbums.includes(id)) {
+        deletedAlbums.push(id);
+      }
+
+      localStorage.setItem('deletedAlbums', JSON.stringify(deletedAlbums));
+
+    }
+
+  });
+
+}
+
+
+album-detail.component.html
+
+Добавь перед кнопками:
+
+<label>Number of photos</label>
+<input type="number" [(ngModel)]="photoCount">
+3️⃣ Измени кнопку View Photos
+
+Было:
+
+<a class="btn" [routerLink]="['/albums', album.id, 'photos']">View Photos</a>
+
+Станет:
+
+<button class="btn" (click)="viewPhotos()">View Photos</button>
+4️⃣ Добавь функцию
+
+В album-detail.component.ts:
+
+viewPhotos() {
+  localStorage.setItem('photoCount', String(this.photoCount));
+  this.router.navigate(['/albums', this.album.id, 'photos']);
+}
+5️⃣ Теперь изменить страницу фото
+
+Открой:
+
+album-photos.component.ts
+
+В ngOnInit() добавь:
+
+const count = Number(localStorage.getItem('photoCount'));
+
+И изменим загрузку фото:
+
+Было:
+
+this.photos = data;
+
+Станет:
+
+if (count) {
+  this.photos = data.slice(0, count);
+} else {
+  this.photos = data;
+}

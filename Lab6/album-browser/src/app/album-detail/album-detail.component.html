@@ -1,0 +1,25 @@
+<div class="card">
+  <h1>Album Detail</h1>
+  
+  <div class="hr"></div>
+
+  <div *ngIf="loading" class="muted">Loading...</div>
+
+  <div *ngIf="!loading">
+    <div class="meta">
+      <div><span class="muted">ID:</span> <b>{{ album.id }}</b></div>
+      <div><span class="muted">User:</span> <b>{{ album.userId }}</b></div>
+    </div>
+
+    <label class="muted">Title</label>
+    <input class="input" [(ngModel)]="editedTitle" />
+
+    
+
+    <div class="actions">
+      <button class="btn primary" (click)="save()">Save</button>
+      <a class="btn" [routerLink]="['/albums', album.id, 'photos']">View Photos</a>
+      <button class="btn" (click)="back()">Back</button>
+    </div>
+  </div>
+</div>

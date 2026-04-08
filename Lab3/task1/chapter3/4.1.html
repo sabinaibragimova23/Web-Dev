@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>optional chaining</title>
+</head>
+<body>
+  <h1>optional chaining examples</h1>
+
+  <!-- basic example -->
+  <h2>1. basic</h2>
+  <button id="basicBtn">check address</button>
+
+  <!-- function call -->
+  <h2>2. function call</h2>
+  <button id="funcBtn">call admin</button>
+
+  <!-- bracket access -->
+  <h2>3. bracket</h2>
+  <button id="bracketBtn">get key</button>
+
+  <!-- short-circuit -->
+  <h2>4. short-circuit</h2>
+  <button id="shortBtn">increment x</button>
+
+  <script>
+    // basic
+    let user1 = {};
+    document.getElementById("basicBtn").onclick = () => {
+      alert(user1?.address?.street); // undefined, safe
+    };
+
+    // function call
+    let userAdmin = { admin() { alert("I am admin"); } };
+    let userGuest = {};
+    document.getElementById("funcBtn").onclick = () => {
+      userAdmin.admin?.(); // works
+      userGuest.admin?.(); // nothing happens
+    };
+
+    // bracket
+    let key = "name";
+    let user2 = { name: "John" };
+    let user3 = null;
+    document.getElementById("bracketBtn").onclick = () => {
+      alert(user2?.[key]); // John
+      alert(user3?.[key]); // undefined
+    };
+
+    // short-circuit
+    let user4 = null;
+    let x = 0;
+    document.getElementById("shortBtn").onclick = () => {
+      user4?.sayHi(x++); // user4 is null, x++ not executed
+      alert("x = " + x); // 0
+    };
+  </script>
+</body>
+</html>

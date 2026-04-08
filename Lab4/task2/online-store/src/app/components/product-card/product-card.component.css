@@ -1,0 +1,172 @@
+.card {
+  height: 520px; 
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e7e7e7;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+
+.image-wrap {
+  width: 100%;
+  height: 260px;    
+  background: #fff;
+}
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+  padding: 0;         
+}
+
+
+.gallery {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px 0 12px;
+}
+
+.nav {
+  border: 1px solid #e7e7e7;
+  background: #fff;
+  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.thumbs {
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.thumb {
+  border: 1px solid #e7e7e7;
+  background: #fff;
+  border-radius: 10px;
+  padding: 2px;
+  cursor: pointer;
+  transition: border 0.2s ease;
+}
+
+.thumb.active {
+  border-color: #6b5bff;
+}
+
+.thumb img {
+  width: 52px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+
+.content {
+  flex: 1;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title {
+  margin: 0;
+  font-size: 16px;
+  min-height: 44px;
+  line-height: 22px;
+  overflow: hidden;
+}
+
+.title a {
+  text-decoration: none;
+  color: #111;
+}
+
+.desc {
+  margin: 0;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.4;
+  min-height: 54px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #f2f2ff;
+  border: 1px solid #e2e2ff;
+}
+
+.stars .star {
+  font-size: 14px;
+  color: #cfcfcf;
+}
+
+.stars .star.filled {
+  color: #ffb300;
+}
+
+
+.actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: #111;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.btn.outline {
+  background: #fff;
+  color: #111;
+  border: 1px solid #e7e7e7;
+}
+
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map & Set Demo</title>
+</head>
+<body>
+  <h1>Map & Set Demo</h1>
+  <div id="output"></div>
+
+  <script>
+    const out = document.getElementById('output');
+    function log(msg) { out.innerHTML += msg + '<br>'; }
+
+
+    let map = new Map();
+    map.set('1','str1').set(1,'num1').set(true,'bool1');
+    log('Map values:');
+    for(let [k,v] of map) log(`${k} -> ${v}`);
+    log('Map size: ' + map.size);
+
+
+    let obj = {name:"John", age:30};
+    let map2 = new Map(Object.entries(obj));
+    log('Map from object:');
+    for(let [k,v] of map2) log(`${k} -> ${v}`);
+
+
+    let obj2 = Object.fromEntries(map2);
+    log('Object from Map: age = ' + obj2.age);
+
+  
+    let set = new Set(["apple","banana","apple"]);
+    log('Set values (unique):');
+    for(let val of set) log(val);
+
+ 
+    let values = ["Hare","Krishna","Hare","Krishna","Krishna","Hare",":-O"];
+    function unique(arr){ return Array.from(new Set(arr)); }
+    log('Unique array: ' + unique(values));
+
+
+    function aclean(arr){
+      let map = new Map();
+      for(let word of arr){
+        let sorted = word.toLowerCase().split('').sort().join('');
+        map.set(sorted, word);
+      }
+      return Array.from(map.values());
+    }
+    let words = ["nap","teachers","cheaters","PAN","ear","era","hectares"];
+    log('Anagrams filtered: ' + aclean(words));
+
+    let map3 = new Map();
+    map3.set("name","John");
+    let keys = Array.from(map3.keys()); // convert to array
+    keys.push("more");
+    log('Map keys as array: ' + keys);
+
+  </script>
+</body>
+</html>

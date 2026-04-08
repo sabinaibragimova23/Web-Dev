@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Strings Tasks</title>
+</head>
+<body>
+  <h1>JS Strings Tasks</h1>
+
+  <script>
+    // --- Uppercase First ---
+    function ucFirst(str) {
+      if (!str) return str;           // empty check
+      return str[0].toUpperCase() + str.slice(1); // capitalize first
+    }
+    alert( ucFirst("john") ); // John
+
+    // --- Check Spam ---
+    function checkSpam(str) {
+      let lowerStr = str.toLowerCase();           // lowercase for check
+      return lowerStr.includes('viagra') || lowerStr.includes('xxx'); // spam check
+    }
+    alert( checkSpam('buy ViAgRA now') ); // true
+    alert( checkSpam('free xxxxx') );     // true
+    alert( checkSpam("innocent rabbit") );// false
+
+    // --- Truncate Text ---
+    function truncate(str, maxlength) {
+      return (str.length > maxlength) ? str.slice(0, maxlength - 1) + '…' : str; // truncate
+    }
+    alert( truncate("What I'd like to tell on this topic is:", 20) ); // "What I'd like to te…"
+    alert( truncate("Hi everyone!", 20) );                             // "Hi everyone!"
+
+    // --- Extract Money ---
+    function extractCurrencyValue(str) {
+      return +str.slice(1); // remove $ and convert
+    }
+    alert( extractCurrencyValue('$120') ); // 120
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>methods of primitives</title>
+</head>
+<body>
+  <h1>Methods of Primitives</h1>
+
+  <!-- string method -->
+  <h2>1. string methods</h2>
+  <button id="strBtn">demo string</button>
+
+  <!-- number method -->
+  <h2>2. number methods</h2>
+  <button id="numBtn">demo number</button>
+
+  <!-- cannot add property -->
+  <h2>3. cannot add property</h2>
+  <button id="propBtn">demo add property</button>
+
+  <!-- null/undefined -->
+  <h2>4. null and undefined</h2>
+  <button id="nullBtn">demo null/undefined</button>
+
+  <script>
+    // string methods
+    document.getElementById("strBtn").onclick = () => {
+      let str = "hello";
+      alert(str.toUpperCase()); // HELLO
+      alert(str.length);        // 5
+    };
+
+    // number methods
+    document.getElementById("numBtn").onclick = () => {
+      let n = 1.23456;
+      alert(n.toFixed(2)); // 1.23
+      alert(typeof n);     // number
+    };
+
+    // cannot add property
+    document.getElementById("propBtn").onclick = () => {
+      let str = "Hello";
+      str.test = 5;        // creates temporary object
+      alert(str.test);      // undefined
+    };
+
+    // null and undefined
+    document.getElementById("nullBtn").onclick = () => {
+      let n = null;
+      let u = undefined;
+      try { alert(n.test); } catch(e) { alert(e); } // TypeError
+      try { alert(u.test); } catch(e) { alert(e); } // TypeError
+    };
+  </script>
+</body>
+</html>

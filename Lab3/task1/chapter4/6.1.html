@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iterables Demo</title>
+</head>
+<body>
+  <h1>Iterables and Array.from Demo</h1>
+  <div id="output"></div>
+
+  <script>
+    const out = document.getElementById('output');
+    function log(msg) { out.innerHTML += msg + '<br>'; }
+
+   
+    let range = { from: 1, to: 5 };
+    range[Symbol.iterator] = function() {
+      return {
+        current: this.from,
+        last: this.to,
+        next() {
+          if (this.current <= this.last) return { done: false, value: this.current++ };
+          else return { done: true };
+        }
+      };
+    };
+
+    log('Range iterable (for..of):');
+    for (let num of range) log(num);
+
+   
+    let str = '𝒳😂';
+    log('String characters:');
+    for (let char of str) log(char);
+
+    
+    let arrayLike = {0: 'Hello', 1: 'World', length: 2};
+    let arr = Array.from(arrayLike); // make it real array
+    log('Array from array-like: ' + arr);
+    log('Pop from array: ' + arr.pop());
+
+    
+    let squares = Array.from(range, n => n * n);
+    log('Squares from range: ' + squares);
+
+   
+    function slice(str, start, end) {
+      return Array.from(str).slice(start, end).join('');
+    }
+    let str2 = '𝒳😂𩷶';
+    log('Slice str2[1,3]: ' + slice(str2,1,3));
+
+   
+    let it = str[Symbol.iterator]();
+    log('Manual iteration:');
+    while(true){
+      let result = it.next();
+      if(result.done) break;
+      log(result.value);
+    }
+
+  </script>
+</body>
+</html>
